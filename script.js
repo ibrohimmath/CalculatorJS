@@ -156,32 +156,32 @@ keys.addEventListener("click", function(e) {
   // + operation
   else if (el.classList.contains("add")) {
     const last = get();
-    if (isNumber(last)) add("+");
+    if (lst.length && last != "+") add("+");
   }
   // - operation
   else if (el.classList.contains("minus")) {
     const last = get();
-    if (isNumber(last)) add("-");
+    if (lst.length && last != "-") add("-");
   } 
   // * operation
   else if (el.classList.contains("mult")) {
     const last = get();
-    if (isNumber(last)) add("*");
+    if (lst.length && last != "*") add("*");
   } 
   // / operation
   else if (el.classList.contains("div")) {
     const last = get();
-    if (isNumber(last)) add("/");
+    if (lst.length && last != "/") add("/");
   } 
   // % operation 
   else if (el.classList.contains("modulo")) {
     const last = get();
-    if (isNumber(last)) add("%");
+    if (lst.length && last != "%") add("%");
   }
   // x^y operation
   else if (el.classList.contains("power")) {
     const last = get();
-    if (isNumber(last)) add("**");
+    if (lst.length && last != "**") add("**");
   }
   // dot adding
   else if (el.classList.contains("dot")) {
@@ -214,7 +214,7 @@ keys.addEventListener("click", function(e) {
   // e func
   else if (el.classList.contains("e")) {
     const last = get();
-    if (!last.includes(".")) {
+    if (!lst.length || !last.includes(".")) {
       add("" + Math.E);
     }
   }
@@ -229,7 +229,7 @@ keys.addEventListener("click", function(e) {
   // PI func
   else if (el.classList.contains("pi")) {
     const last = get();
-    if (!last.includes(".")) {
+    if (!lst.length || !last.includes(".")) {
       add("" + Math.PI);
     }
   }
@@ -245,5 +245,5 @@ keys.addEventListener("click", function(e) {
       alert("Invalid format for calculation. Try again!");
     }
   }
-  // console.log(lst);
+  console.log(lst);
 });
